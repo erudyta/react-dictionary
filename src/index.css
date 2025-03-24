@@ -5,7 +5,7 @@
 }
 
 :root {
-  --font-familiy: "Roboto", sans-serif;
+	--font-familiy: 'Roboto', sans-serif;
 	--background-color: #fff;
 	--text-color: #000;
 }
@@ -16,23 +16,20 @@ body[data-theme='dark'] {
 }
 
 body[data-font='roboto'] {
-  --font-familiy: "Roboto", sans-serif;
+	--font-familiy: 'Roboto', sans-serif;
 }
 
 body[data-font='andada'] {
-  --font-familiy: "Andada Pro", serif;
+	--font-familiy: 'Andada Pro', serif;
 }
 
 body[data-font='pt'] {
-  --font-familiy: "PT Serif", serif;
+	--font-familiy: 'PT Serif', serif;
 }
 
 body {
 	min-height: 100vh;
-  font-family: var(--font-familiy);
+	font-family: var(--font-familiy);
 	background-color: var(--background-color);
 	color: var(--text-color);
 }
-
-
-
