@@ -1,6 +1,7 @@
-import { Box, Button, Typography } from '@mui/material'
+import { Box, Button, List, Typography, ListItem, Link } from '@mui/material'
 import { WordData } from '../types/dictionaryTypes'
 import { useEffect, useState } from 'react'
+import Meanings from './Meanings'
 
 interface Props {
 	word: WordData | null
@@ -51,11 +52,15 @@ const DictionaryViewer = ({ word }: Props) => {
 		setIsPlaying(!isPlaying)
 	}
 
+	console.log(word)
+
 	return (
 		<Box>
-			<Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems:'center' }}>
+			<Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
 				<Box>
-					<Typography sx={{ fontSize: '4rem', fontWeight: 600 }}>{word?.word}</Typography>
+					<Typography variant='h1' sx={{ fontSize: '4rem', fontWeight: 600 }}>
+						{word?.word}
+					</Typography>
 					<Typography sx={{ fontSize: '1.3rem', color: '#ff6040' }}>{word?.phonetic}</Typography>
 				</Box>
 				{audio && (
@@ -69,6 +74,23 @@ const DictionaryViewer = ({ word }: Props) => {
 						)}
 					</Button>
 				)}
+			</Box>
+			{word?.meanings.map((meaning, index) => (
+				<Meanings key={index} meaning={meaning}></Meanings>
+			))}
+
+			<Box>
+				<Box sx={{ height: '1px', width: '100%', backgroundColor: '#ebebeb', margin: '2rem 0' }}></Box>
+				<Typography sx={{ fontSize: '1rem', color: '#a1a1a1' }}>Source:</Typography>
+				<List sx={{ padding: '0' }}>
+					{word?.sourceUrls.map(source => (
+						<ListItem key={source}>
+							<Link underline='always' href={source} target='_blank' rel='noopener noreferrer'>
+								{source}
+							</Link>
+						</ListItem>
+					))}
+				</List>
 			</Box>
 		</Box>
 	)

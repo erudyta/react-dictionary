@@ -10,9 +10,11 @@ interface Definition {
 	antonyms: string[]
 }
 
-interface Meaning {
+export interface Meaning {
 	partOfSpeech: string
-	definitions: Definition[]
+	definitions: Definition[],
+	synonyms: string[]
+	antonyms: string[]
 }
 
 export interface WordData {
@@ -21,4 +23,5 @@ export interface WordData {
 	phonetics: Phonetic[]
 	origin?: string
 	meanings: Meaning[]
+	sourceUrls: string[]
 }

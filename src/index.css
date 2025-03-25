@@ -28,7 +28,6 @@ body[data-font='pt'] {
 }
 
 body {
-	min-height: 100vh;
 	font-family: var(--font-familiy);
 	background-color: var(--background-color);
 	color: var(--text-color);
