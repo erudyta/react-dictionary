@@ -56,12 +56,38 @@ const DictionaryViewer = ({ word }: Props) => {
 
 	return (
 		<Box>
-			<Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
+			<Box
+				sx={{
+					display: 'flex',
+					justifyContent: 'space-between',
+					alignItems: 'center',
+					marginBottom: '1rem',
+					gap: '1.5rem',
+				}}>
 				<Box>
-					<Typography variant='h1' sx={{ fontSize: '4rem', fontWeight: 600 }}>
+					<Typography
+						variant='h1'
+						sx={theme => ({
+							fontSize: '2.6rem',
+							fontWeight: 600,
+							wordBreak: 'break-all',
+							[theme.breakpoints.up('xs')]: {
+								fontSize: '4rem',
+								fontWeight: 600,
+							},
+						})}>
 						{word?.word}
 					</Typography>
-					<Typography sx={{ fontSize: '1.3rem', color: '#ff6040' }}>{word?.phonetic}</Typography>
+					<Typography
+						sx={theme => ({
+							fontSize: '1.15rem',
+							color: '#ff6040',
+							[theme.breakpoints.up('xs')]: {
+								fontSize: '1.3rem',
+							},
+						})}>
+						{word?.phonetic}
+					</Typography>
 				</Box>
 				{audio && (
 					<Button
@@ -85,7 +111,10 @@ const DictionaryViewer = ({ word }: Props) => {
 				<List sx={{ padding: '0' }}>
 					{word?.sourceUrls.map(source => (
 						<ListItem key={source}>
-							<Link underline='always' href={source} target='_blank' rel='noopener noreferrer'>
+							<Link underline='always' href={source} target='_blank' rel='noopener noreferrer' 
+								sx={theme => ({
+									wordBreak: 'break-all'
+								})}>
 								{source}
 							</Link>
 						</ListItem>

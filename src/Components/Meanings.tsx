@@ -6,10 +6,10 @@ interface Props {
 }
 
 const StyledListItem = styled(ListItem)({
-	display: 'list-item', 
+	display: 'list-item',
 	listStyleType: 'disc',
 	'::marker': {
-		color: '#ff6040', 
+		color: '#ff6040',
 		fontSize: '1.1em',
 	},
 })
@@ -22,16 +22,25 @@ const Meanings = ({ meaning }: Props) => {
 				<Box sx={{ height: '1px', width: '100%', backgroundColor: '#ebebeb' }}></Box>
 			</Box>
 			<Typography sx={{ fontSize: '1.1rem', color: '#a1a1a1' }}>Meanings</Typography>
-			<List sx={{ padding: '0 0 0 4rem' }}>
+			<List sx={theme => ({
+				padding: '0 0 0 2rem',
+				[theme.breakpoints.up('sm')]: {
+					padding: '0 0 0 4rem'
+				}
+			})}>
 				{meaning.definitions.map(definition => (
-					<StyledListItem key={definition.definition}>{definition.definition}</StyledListItem>
+					<StyledListItem key={definition.definition}>
+						<Typography>{definition.definition}</Typography>
+					</StyledListItem>
 				))}
 			</List>
 			{meaning.synonyms.length > 0 && (
 				<Typography sx={{ fontSize: '1.1rem', color: '#a1a1a1' }}>
 					Synonyms{' '}
 					{meaning.synonyms.map(s => (
-						<span key={s} style={{ marginLeft: '1rem', fontWeight: 600, color: '#ff6040' }}>{s} </span>
+						<span key={s} style={{ marginLeft: '1rem', fontWeight: 600, color: '#ff6040' }}>
+							{s}{' '}
+						</span>
 					))}
 				</Typography>
 			)}

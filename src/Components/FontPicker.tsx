@@ -13,7 +13,7 @@ interface Props {
 
 const FontPicker = ({ darkMode, font, setFont }: Props) => {
 	const fonts: string[] = ['Roboto, sans-serif', 'Andada Pro, serif', 'PT Serif, serif']
-	const color: string = darkMode ? '#FFF' : 'black '
+	const color: string = darkMode ? '#d4d4d4' : 'black '
 
 	return (
 		<FormControl
