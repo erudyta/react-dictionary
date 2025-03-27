@@ -111,10 +111,14 @@ const DictionaryViewer = ({ word }: Props) => {
 				<List sx={{ padding: '0' }}>
 					{word?.sourceUrls.map(source => (
 						<ListItem key={source}>
-							<Link underline='always' href={source} target='_blank' rel='noopener noreferrer' 
-								sx={theme => ({
-									wordBreak: 'break-all'
-								})}>
+							<Link
+								underline='always'
+								href={source}
+								target='_blank'
+								rel='noopener noreferrer'
+								sx={{
+									wordBreak: 'break-all',
+								}}>
 								{source}
 							</Link>
 						</ListItem>

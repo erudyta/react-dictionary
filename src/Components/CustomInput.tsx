@@ -24,7 +24,7 @@ const CustomInput = ({ darkMode ,searchForText }: Props) => {
 				onChange={e => setText(e.target.value)}
 				onKeyDown={handleKeyDown}
 				disableUnderline
-				placeholder='Search'
+				placeholder='Search for a word...'
 				sx={{ width: '100%', padding: '.7rem .7rem .7rem 0', fontSize: '1.3rem', fontWeight: '600', color: darkMode ? '#d4d4d4' : 'black' }}></Input>
 		</Box>
 	)

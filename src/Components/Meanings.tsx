@@ -29,7 +29,12 @@ const Meanings = ({ meaning }: Props) => {
 				}
 			})}>
 				{meaning.definitions.map(definition => (
-					<StyledListItem key={definition.definition}>
+					<StyledListItem sx={theme => ({
+						padding:'8px 4px',
+						[theme.breakpoints.up('sm')]: {
+							padding:'8px 16px',	
+						}
+					})} key={definition.definition}>
 						<Typography>{definition.definition}</Typography>
 					</StyledListItem>
 				))}

@@ -31,8 +31,8 @@ const App = () => {
 
 			if (!res.ok) {
 				if (res.status === 404) {
-					setError('Word not found')
-					throw new Error('Word not found')
+					setError('Sorry, word could not be found.')
+					throw new Error('Sorry, word could not be found.')
 				}
 			}
 
@@ -105,7 +105,7 @@ const App = () => {
 				{error === null ? (
 					<DictionaryViewer word={apiResult}></DictionaryViewer>
 				) : (
-					<Typography variant='h1'>{error}</Typography>
+					<Typography variant='h1' sx={{fontSize: '2rem', fontWeight:'600'}}>{error}</Typography>
 				)}
 			</Container>
 		</ThemeProvider>
