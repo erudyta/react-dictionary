@@ -20,25 +20,27 @@ const DictionaryViewer = ({ word }: Props) => {
 			setIsPlaying(false)
 		}
 	}, [audio])
+	console.log(word);
 
 	useEffect(() => {
-		if (word) {
-			if (word.phonetics[0].audio) {
-				const newAudio = new Audio(word.phonetics[0].audio)
-				newAudio.onended = () => setIsPlaying(false)
-				setAudio(newAudio)
+		if (word && word.phonetics && word.phonetics.length > 0) {
+			const audioSrc = word.phonetics[0].audio;
+			if (audioSrc) {
+				const newAudio = new Audio(audioSrc);
+				newAudio.onended = () => setIsPlaying(false);
+				setAudio(newAudio);
 			} else {
-				setAudio(null)
+				setAudio(null);
 			}
 		} else {
-			setAudio(null)
+			setAudio(null);
 		}
-
+	
 		return () => {
-			setAudio(null)
-			setIsPlaying(false)
-		}
-	}, [word])
+			setAudio(null);
+			setIsPlaying(false);
+		};
+	}, [word]);
 
 	const toggleAudio = (): void => {
 		if (!audio) return
